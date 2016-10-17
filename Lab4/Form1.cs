@@ -159,7 +159,7 @@ namespace Lab4
                         Game_Board = Location_Checker(Game_Board);//Repopulates the board appropriately
                         if (queens == 8)
                         {
-                            MessageBox.Show("You did it!");
+                            MessageBox.Show("You did it!");//Game ending message
                         }
                     }
                     else
