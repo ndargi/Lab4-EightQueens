@@ -15,17 +15,17 @@ namespace Lab4
         private int queens = 0;
         private Bitmap BlackQ;
         private Bitmap WhiteQ;
-        private int[,] Game_Board = new int[8, 8];
+        private int[,] Game_Board = new int[8, 8];//Game board can contain a 0 for free and allowed, a 1 for populated, and a 2 for free but not allowed
         public Form1()
         {
             InitializeComponent();
-            BlackQ = new Bitmap(@"..\..\BlackQ.png");
-            WhiteQ = new Bitmap(@"..\..\WhiteQ.png");
+            BlackQ = new Bitmap(@"..\..\BlackQ.png");//BlackQ object used
+            WhiteQ = new Bitmap(@"..\..\WhiteQ.png");//White Q object Used
             for (int i = 0;i<8;i++)
             {
                 for (int j = 0; j<8;j++)
                 {
-                    Game_Board[i, j] = 0;
+                    Game_Board[i, j] = 0;//Initialize all game spaces to 0
                 }
             }
         }
@@ -35,7 +35,7 @@ namespace Lab4
             Pen BlackPen = new Pen(Brushes.Black);
             Graphics g = e.Graphics;
             
-            for (int i = 0; i<8;i++)
+            for (int i = 0; i<8;i++)//Loop through the Board and populate the Form with the board status
             {
                 for (int j = 0; j<8;j++)
                 {
@@ -46,7 +46,7 @@ namespace Lab4
                             g.FillRectangle(Brushes.White, 100 + 50 * j, 100 + 50 * i, 50, 50);//Fill Square Border
                             if (Game_Board[j, i] == 2)
                             {
-                                if (Hints.Checked)
+                                if (Hints.Checked)//This will run and show the hints these will populate red if the board space is a 1 or 2
                                 {
                                     g.FillRectangle(Brushes.Red, 100 + 50 * j, 100 + 50 * i, 50, 50);
                                 }
@@ -139,12 +139,12 @@ namespace Lab4
                     g.DrawRectangle(BlackPen, 100 + 50 * j, 100 + 50 * i, 50, 50);//Create Square Border
                 }
             }
-            string queenstring = "You have " + queens + " queens on the board.";
+            string queenstring = "You have " + queens + " queens on the board.";//Creates the score string
             
             g.DrawString(queenstring, Font, Brushes.Black, 280, 39);
         }
 
-        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        private void Form1_MouseClick(object sender, MouseEventArgs e)//Runs when the board is clicked
         {
             Point P = new Point(e.X - 100, e.Y - 100);
             int squarex = P.X / 50;//X Block Location of Click
@@ -164,20 +164,20 @@ namespace Lab4
                     }
                     else
                     {
-                        System.Media.SystemSounds.Beep.Play();
+                        System.Media.SystemSounds.Beep.Play();//Beep if the locations is not allowed(a 1 or 2)
                     }
                 }
             }
-            if (e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)//Remove the Queen and repopulate the array
             {
                 Game_Board[squarex, squarey] = 0;
                 Game_Board = Location_Checker(Game_Board);//Repopulates the board appropriately
             }
 
 
-            Invalidate();
+            Invalidate();//Always repaint the board
         }
-        private int[,] Location_Checker(int[,] Board)//Function to check if Location is allowed
+        private int[,] Location_Checker(int[,] Board)//Function to check if Location is allowed, returns repopulated array
         {
             queens = 0;
             for (int i = 0; i < 8; i++)//Initialize all without a queen to zero and then check them
@@ -289,7 +289,7 @@ namespace Lab4
             Invalidate();
         }
 
-        private void Hints_CheckedChanged(object sender, EventArgs e)
+        private void Hints_CheckedChanged(object sender, EventArgs e)//Runs when check is changed, just repopulates the board and shows him or removes them 
         {
             Invalidate();
         }
