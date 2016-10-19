@@ -34,7 +34,8 @@ namespace Lab4
         {
             Pen BlackPen = new Pen(Brushes.Black);
             Graphics g = e.Graphics;
-            
+            Game_Board = Location_Checker(Game_Board);//Repopulates the board appropriately
+
             for (int i = 0; i<8;i++)//Loop through the Board and populate the Form with the board status
             {
                 for (int j = 0; j<8;j++)
@@ -171,7 +172,6 @@ namespace Lab4
             if (e.Button == MouseButtons.Right)//Remove the Queen and repopulate the array
             {
                 Game_Board[squarex, squarey] = 0;
-                Game_Board = Location_Checker(Game_Board);//Repopulates the board appropriately
             }
 
 
@@ -286,7 +286,6 @@ namespace Lab4
                     Game_Board[i, j] = 0;
                 }
             }
-            Game_Board = Location_Checker(Game_Board);//Repopulates the board appropriately
             Invalidate();
         }
 
