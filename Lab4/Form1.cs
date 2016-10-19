@@ -171,7 +171,10 @@ namespace Lab4
             }
             if (e.Button == MouseButtons.Right)//Remove the Queen and repopulate the array
             {
-                Game_Board[squarex, squarey] = 0;
+                if ((squarex >= 0) && (squarex <= 7) && (squarey >= 0) && (squarey <= 7))//Statement to see if a square was clicked
+                { 
+                    Game_Board[squarex, squarey] = 0;
+                }
             }
 
 
