@@ -58,7 +58,7 @@ namespace Lab4
                                 {
                                     g.FillRectangle(Brushes.Red, 100 + 50 * j, 100 + 50 * i, 50, 50);
                                 }
-                                g.DrawImage(BlackQ, 100 + 50 * j + 2, 100 + 50 * i + 2, 45, 45);//How to draw Q in Space
+                                g.DrawImage(BlackQ, 100 + 50 * j + 5, 100 + 50 * i + 5, 40, 40);//How to draw Q in Space
                             }
                            
                         }
@@ -74,13 +74,13 @@ namespace Lab4
                             }
                             if (Game_Board[j, i] == 1)
                             {
-                                
-                                g.DrawImage(WhiteQ, 100 + 50 * j + 2, 100 + 50 * i + 2, 45, 45);//How to draw Q in Space
+
+                                g.DrawImage(WhiteQ, 100 + 50 * j + 5, 100 + 50 * i + 5, 40, 40);//How to draw Q in Space
 
                                 if (Hints.Checked)
                                 {
                                     g.FillRectangle(Brushes.Red, 100 + 50 * j, 100 + 50 * i, 50, 50);
-                                    g.DrawImage(BlackQ, 100 + 50 * j + 2, 100 + 50 * i + 2, 45, 45);//How to draw Q in Space
+                                    g.DrawImage(BlackQ, 100 + 50 * j + 5, 100 + 50 * i + 5, 40, 40);//How to draw Q in Space
 
                                 }
                             }
@@ -102,13 +102,13 @@ namespace Lab4
                             }
                             if (Game_Board[j, i] == 1)
                             {
-                                
-                                g.DrawImage(WhiteQ, 100 + 50 * j + 2, 100 + 50 * i + 2, 45, 45);//How to draw Q in Space
+
+                                g.DrawImage(WhiteQ, 100 + 50 * j + 5, 100 + 50 * i + 5, 40, 40);//How to draw Q in Space
 
                                 if (Hints.Checked)
                                 {
                                     g.FillRectangle(Brushes.Red, 100 + 50 * j, 100 + 50 * i, 50, 50);
-                                    g.DrawImage(BlackQ, 100 + 50 * j + 2, 100 + 50 * i + 2, 45, 45);//How to draw Q in Space
+                                    g.DrawImage(BlackQ, 100 + 50 * j + 5, 100 + 50 * i + 5, 40, 40);//How to draw Q in Space
 
                                 }
                             }
@@ -131,9 +131,9 @@ namespace Lab4
                                 {
                                     g.FillRectangle(Brushes.Red, 100 + 50 * j, 100 + 50 * i, 50, 50);
                                 }
-                                g.DrawImage(BlackQ, 100 + 50 * j + 2, 100 + 50 * i + 2, 45, 45);//How to draw Q in Space
+                                g.DrawImage(BlackQ, 100 + 50 * j + 5, 100 + 50 * i + 5, 40, 40);//How to draw Q in Space
                             }
-                           
+
                         }
                     }
                     g.DrawRectangle(BlackPen, 100 + 50 * j, 100 + 50 * i, 50, 50);//Create Square Border
@@ -286,6 +286,7 @@ namespace Lab4
                     Game_Board[i, j] = 0;
                 }
             }
+            Game_Board = Location_Checker(Game_Board);//Repopulates the board appropriately
             Invalidate();
         }
 

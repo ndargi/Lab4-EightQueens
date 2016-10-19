@@ -34,9 +34,9 @@
             // 
             // Clear
             // 
-            this.Clear.Location = new System.Drawing.Point(149, 26);
+            this.Clear.Location = new System.Drawing.Point(139, 32);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(98, 38);
+            this.Clear.Size = new System.Drawing.Size(89, 29);
             this.Clear.TabIndex = 0;
             this.Clear.Text = "Clear";
             this.Clear.UseVisualStyleBackColor = true;
